@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin, Github, Download } from 'lucide-react';
+import { Mail, Phone, Linkedin, Download } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -17,50 +17,58 @@ const Contact: React.FC = () => {
             Open to PM and SDE opportunities. Let's build something great together.
           </p>
 
+          {/* Desktop: email • phone • LinkedIn in one row | Mobile: email + phone stacked */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
-             <a 
-               href="mailto:prerana22002@gmail.com" 
+             <a
+               href="mailto:prerana22002@gmail.com"
                className="flex items-center gap-2 text-white hover:text-accent transition-colors text-sm sm:text-base"
              >
                <Mail size={18} />
                <span>prerana22002@gmail.com</span>
              </a>
              <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-border" />
-             <a 
+             <a
                href="tel:+15628325577"
                className="flex items-center gap-2 text-white hover:text-accent transition-colors text-sm sm:text-base"
              >
                <Phone size={18} />
                <span>+1 (562) 832-5577</span>
              </a>
+             {/* LinkedIn icon — desktop only in this row */}
+             <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-border" />
+             <a
+               href="https://www.linkedin.com/in/prerana-puttaswamy-a07836224/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="LinkedIn"
+               className="hidden sm:flex p-3 rounded-full bg-surface border border-border text-secondary hover:text-white hover:border-accent hover:-translate-y-1 transition-all"
+             >
+               <Linkedin size={20} />
+             </a>
           </div>
 
-          <div className="flex justify-center gap-6 mb-10">
-            <a 
-              href="#" 
+          {/* Mobile: LinkedIn icon + Download Resume on same line | Desktop: Download Resume only */}
+          <div className="flex items-center justify-center gap-4">
+            {/* LinkedIn icon — mobile only */}
+            <a
+              href="https://www.linkedin.com/in/prerana-puttaswamy-a07836224/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-3 rounded-full bg-surface border border-border text-secondary hover:text-white hover:border-accent hover:-translate-y-1 transition-all"
+              className="sm:hidden p-3 rounded-full bg-surface border border-border text-secondary hover:text-white hover:border-accent hover:-translate-y-1 transition-all"
             >
               <Linkedin size={20} />
             </a>
-            <a 
-              href="#" 
-              aria-label="GitHub"
-              className="p-3 rounded-full bg-surface border border-border text-secondary hover:text-white hover:border-accent hover:-translate-y-1 transition-all"
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-secondary hover:text-white hover:border-white transition-colors text-sm sm:text-base"
             >
-              <Github size={20} />
+              <Download size={16} />
+              <span>Download Resume</span>
             </a>
           </div>
-
-          <a 
-            href="/resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-secondary hover:text-white hover:border-white transition-colors text-sm sm:text-base"
-          >
-            <Download size={16} />
-            <span>Download Resume</span>
-          </a>
         </motion.div>
 
         <div className="border-t border-border pt-8 text-center text-secondary text-xs sm:text-sm">
